@@ -1,3 +1,13 @@
+type ArtistsResponse = {
+  data: Artist[];
+  pagination: {
+    currentPage: number;
+    total_pages: number;
+    per_page: number;
+    total_items: number;
+  };
+};
+
 type Artist = {
   id: number;
   name: string;
@@ -5,4 +15,4 @@ type Artist = {
   portrait: string;
 };
 
-export type { Artist };
+export type { ArtistsResponse, Artist };
