@@ -1,6 +1,6 @@
 "use client";
 
-import { Paper } from "@mui/material";
+import { Paper, Skeleton } from "@mui/material";
 import { useSearchParams } from "next/navigation";
 
 import { useArtists } from "@/api/hooks";
@@ -8,9 +8,17 @@ import { LinkPagination } from "@/components/LinkPagination/LinkPagination";
 
 const Pagination = () => {
   const searchParams = useSearchParams();
-  const { data } = useArtists(
+  const { data, error } = useArtists(
     new URLSearchParams({ search: searchParams.get("search") || "" })
   );
+
+  if (error) {
+    return <Skeleton variant="rectangular" width={200} height={32} />;
+  }
+
+  if (data?.pagination && data.pagination.total_pages < 2) {
+    return null;
+  }
 
   return (
     <Paper>

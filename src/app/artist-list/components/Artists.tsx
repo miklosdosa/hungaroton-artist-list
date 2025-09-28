@@ -1,5 +1,6 @@
 "use client";
 
+import { Alert } from "@mui/material";
 import { useSearchParams } from "next/navigation";
 
 import { useArtists } from "@/api/hooks";
@@ -19,7 +20,15 @@ const Artists = () => {
   }
 
   if (error) {
-    return null;
+    return (
+      <Alert
+        variant="outlined"
+        severity="error"
+        sx={{ width: "max-content", marginLeft: "auto", marginRight: "auto" }}
+      >
+        Something went wrong. Refetch in progress...
+      </Alert>
+    );
   }
 
   return (
