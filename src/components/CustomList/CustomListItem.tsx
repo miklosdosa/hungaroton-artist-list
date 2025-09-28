@@ -16,7 +16,11 @@ const CustomListItem = ({ title, image, properyLabels }: Item) => (
         <Image src={image.src} fill={true} alt={image.alt} />
       </Box>
 
-      <Stack sx={{ flexGrow: 1, justifyContent: "space-between" }}>
+      <Stack
+        sx={{ flexGrow: 1, justifyContent: "space-between" }}
+        spacing={2}
+        p={1}
+      >
         <Typography variant="subtitle1" component="p">
           {title}
         </Typography>
