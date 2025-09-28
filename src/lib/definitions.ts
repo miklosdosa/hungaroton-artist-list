@@ -15,4 +15,19 @@ type Artist = {
   portrait: string;
 };
 
+enum ArtistType {
+  isPerformer = "is_performer",
+  isComposer = "is_composer",
+  isPrimary = "isPrimary",
+}
+
+enum SearchParams {
+  search = "search",
+  letter = "letter",
+  includeImage = "include_image",
+  type = "type",
+  perPage = "per_page",
+  page = "page",
+}
+export { ArtistType, SearchParams };
 export type { ArtistsResponse, Artist };

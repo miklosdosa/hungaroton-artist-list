@@ -1,24 +1,18 @@
 "use client";
 import SearchIcon from "@mui/icons-material/Search";
 import { IconButton, Stack, TextField } from "@mui/material";
-import { useSearchParams, usePathname, useRouter } from "next/navigation";
 import { useRef } from "react";
 
+import { SearchParams } from "@/lib/definitions";
+import { useReplaceParams } from "@/lib/utils";
+
 const Search = () => {
-  const searchParams = useSearchParams();
-  const pathname = usePathname();
-  const { replace } = useRouter();
+  const { searchParams, replaceParam } = useReplaceParams();
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleSearch = () => {
     const term = inputRef.current?.value;
-    const params = new URLSearchParams(searchParams);
-    if (term) {
-      params.set("search", encodeURI(term));
-    } else {
-      params.delete("search");
-    }
-    replace(`${pathname}?${params.toString()}`);
+    replaceParam(SearchParams.search, term);
   };
 
   return (
@@ -29,7 +23,9 @@ const Search = () => {
         label="Search"
         inputRef={inputRef}
         fullWidth
-        defaultValue={decodeURI(searchParams.get("search")?.toString() || "")}
+        defaultValue={decodeURI(
+          searchParams.get(SearchParams.search)?.toString() || ""
+        )}
       />
       <IconButton
         type="button"

@@ -1,9 +1,18 @@
+import { SearchParams } from "@/lib/definitions";
+
 const PARAM_CONF = {
   artists: {
-    available: ["page", "per_page", "include_image", "search"],
+    available: [
+      SearchParams.page,
+      SearchParams.perPage,
+      SearchParams.includeImage,
+      SearchParams.search,
+      SearchParams.type,
+      SearchParams.letter,
+    ],
     default: {
-      include_image: "true",
-      per_page: "50",
+      [SearchParams.includeImage]: "true",
+      [SearchParams.perPage]: "50",
     },
   },
 };

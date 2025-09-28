@@ -1,6 +1,4 @@
-import { AppBar, Stack, Toolbar } from "@mui/material";
-
-import { Search } from "@/components/Search/Search";
+import { Stack } from "@mui/material";
 
 const Layout = ({
   children,
@@ -8,11 +6,6 @@ const Layout = ({
   children: React.ReactNode;
 }>) => (
   <Stack minHeight="100vh" spacing={2}>
-    <AppBar position="sticky" color="default">
-      <Toolbar>
-        <Search />
-      </Toolbar>
-    </AppBar>
     {children}
   </Stack>
 );
