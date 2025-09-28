@@ -1,4 +1,6 @@
-import { Box, Stack } from "@mui/material";
+import { AppBar, Box, Stack, Toolbar } from "@mui/material";
+
+import { Search } from "@/components/Search/Search";
 
 import { Artists } from "./components/Artists";
 import { Pagination } from "./components/Pagination";
@@ -6,6 +8,11 @@ import { Pagination } from "./components/Pagination";
 const Page = () => {
   return (
     <Stack minHeight="100vh" justifyContent="space-between">
+      <AppBar position="sticky" color="default">
+        <Toolbar>
+          <Search />
+        </Toolbar>
+      </AppBar>
       <Artists />
       <Box
         position="sticky"
