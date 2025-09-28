@@ -42,9 +42,8 @@ const useArtists = (params?: URLSearchParams | null) => {
     PARAM_CONF.artists.default
   );
 
-  console.log(query);
   const { data, error, isLoading } = useSWR<ArtistsResponse>(
-    `https://exam.api.fotex.net/api/artists?${query}`,
+    `${process.env.NEXT_PUBLIC_API_URL}/artists?${query}`,
     fetcher,
     {
       revalidateIfStale: false,
