@@ -1,6 +1,8 @@
 import { Box, Chip, Paper, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 
+import theme from "@/theme";
+
 import { Item } from "./definitions";
 
 const CustomListItem = ({ title, image, properyLabels }: Item) => (
@@ -13,14 +15,15 @@ const CustomListItem = ({ title, image, properyLabels }: Item) => (
           height: { xs: "150px", sm: "150px" },
         }}
       >
-        <Image src={image.src} fill={true} alt={image.alt} />
+        <Image
+          src={image.src}
+          fill={true}
+          alt={image.alt}
+          sizes={`(max-width: ${theme.breakpoints.values.sm}px) 150px`}
+        />
       </Box>
 
-      <Stack
-        sx={{ flexGrow: 1, justifyContent: "space-between" }}
-        spacing={2}
-        p={1}
-      >
+      <Stack spacing={2} flexGrow={1} justifyContent="space-between" p={1}>
         <Typography variant="subtitle1" component="p">
           {title}
         </Typography>
