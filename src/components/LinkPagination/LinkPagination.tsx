@@ -23,6 +23,7 @@ const LinkPagination = ({ count }: LinkPaginationProps) => {
   return (
     <MUIPagination
       page={parseInt(params.get("page") || "1", 10)}
+      color="primary"
       count={count}
       renderItem={(item) => (
         <PaginationItem
