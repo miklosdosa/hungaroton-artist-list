@@ -1,11 +1,24 @@
 "use client";
+
+import { useSearchParams } from "next/navigation";
+
 import { useArtists } from "@/api/hooks";
 import { CustomList } from "@/components/CustomList/CustomList";
+import { CustomListSkeleton } from "@/components/CustomList/CustomListSkeleton";
 
 const Artists = () => {
-  const { data, error, isLoading } = useArtists();
+  const params = useSearchParams();
+  const { data, error, isLoading } = useArtists(params);
 
-  if (error || isLoading) {
+  if (isLoading) {
+    return (
+      <CustomListSkeleton
+        items={parseInt(params.get("per_page") || "50", 10)}
+      />
+    );
+  }
+
+  if (error) {
     return null;
   }
 
