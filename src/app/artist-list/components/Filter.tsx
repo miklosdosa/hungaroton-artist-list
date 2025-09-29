@@ -1,7 +1,4 @@
 "use client";
-
-import { ArtistType, SearchParams } from "@/lib/definitions";
-import { ABC_REGEX, useReplaceParams } from "@/lib/utils";
 import {
   Checkbox,
   FormControl,
@@ -12,6 +9,9 @@ import {
   TextField,
 } from "@mui/material";
 import { ChangeEvent, useState } from "react";
+
+import { ArtistType, SearchParams } from "@/lib/definitions";
+import { ABC_REGEX, useReplaceParams } from "@/lib/utils";
 
 const Filter = () => {
   const { searchParams, replaceParam } = useReplaceParams();

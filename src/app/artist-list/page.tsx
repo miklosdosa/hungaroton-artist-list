@@ -1,11 +1,12 @@
 import { Box, Stack } from "@mui/material";
+import { Suspense } from "react";
 
 import { Artists } from "./components/Artists";
 import { FilterBar } from "./components/FilterBar";
 import { Pagination } from "./components/Pagination";
 
 const Page = () => (
-  <>
+  <Suspense>
     <FilterBar />
     <Stack justifyContent="space-between" flexGrow={1}>
       <Artists />
@@ -20,7 +21,7 @@ const Page = () => (
         <Pagination />
       </Box>
     </Stack>
-  </>
+  </Suspense>
 );
 
 export default Page;
