@@ -6,8 +6,8 @@ import theme from "@/theme";
 import { Item } from "./definitions";
 
 const CustomListItem = ({ title, image, properyLabels }: Item) => (
-  <Paper sx={{ display: "flex", height: "-webkit-fill-available" }}>
-    <Stack flexGrow={1} flexDirection={{ xs: "row", sm: "column" }}>
+  <Paper sx={{ height: "100%" }}>
+    <Stack height={"100%"} flexDirection={{ xs: "row", sm: "column" }}>
       <Box
         sx={{
           position: "relative",
