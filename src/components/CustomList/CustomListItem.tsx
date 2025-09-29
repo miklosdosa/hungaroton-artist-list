@@ -11,6 +11,7 @@ const CustomListItem = ({ title, image, properyLabels }: Item) => (
       <Box
         sx={{
           position: "relative",
+          minWidth: "150px",
           width: { xs: "150px", sm: "150px" },
           height: { xs: "150px", sm: "150px" },
         }}

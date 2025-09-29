@@ -3,10 +3,9 @@
 import FilterAltIcon from "@mui/icons-material/FilterAlt";
 import {
   AppBar,
-  Box,
   Collapse,
+  Divider,
   IconButton,
-  Paper,
   Stack,
   Toolbar,
 } from "@mui/material";
@@ -24,23 +23,20 @@ const FilterBar = () => {
   };
 
   return (
-    <Box>
-      <AppBar position="sticky" color="default">
-        <Toolbar>
-          <Stack justifyContent="space-between" direction="row" flexGrow={1}>
-            <Search />
-            <IconButton color="inherit" onClick={toggleDrawer}>
-              <FilterAltIcon />
-            </IconButton>
-          </Stack>
-        </Toolbar>
-      </AppBar>
+    <AppBar position="sticky" color="default">
+      <Toolbar>
+        <Stack justifyContent="space-between" direction="row" flexGrow={1}>
+          <Search />
+          <IconButton color="inherit" onClick={toggleDrawer}>
+            <FilterAltIcon />
+          </IconButton>
+        </Stack>
+      </Toolbar>
       <Collapse in={open}>
-        <Paper>
-          <Filter />
-        </Paper>
+        <Divider />
+        <Filter />
       </Collapse>
-    </Box>
+    </AppBar>
   );
 };
 
