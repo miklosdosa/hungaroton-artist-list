@@ -18,7 +18,7 @@ type Artist = {
 enum ArtistType {
   isPerformer = "is_performer",
   isComposer = "is_composer",
-  isPrimary = "isPrimary",
+  isPrimary = "is_primary",
 }
 
 enum SearchParams {
